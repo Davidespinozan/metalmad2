@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetalMad — Herrería Arquitectónica a la Medida</title>
+<meta name="description" content="Herrería arquitectónica premium en Sinaloa. Puertas, portones, escaleras, barandales y cancelería a la medida. Proyectos en Sinaloa, Sonora, Jalisco, Durango y Nayarit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0E0C; --ink-2:#1C1C1A; --bg:#F5F4F1; --bg-2:#EDECEA;
+  --white:#FFFFFF; --mid:#68685E; --light:#9A9A90;
+  --silver:#B0B0A8; --silver-2:#888880; --silver-light:#D8D8D2;
+  --text-sm:.78rem; --text-base:.9rem; --text-md:1rem; --text-lg:1.3rem; --text-xl:1.8rem;
+  --text-hero:clamp(3rem,5.5vw,5rem);
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;
+  --sp-6:32px;--sp-7:48px;--sp-8:64px;--sp-9:80px;--sp-10:96px;--sp-11:128px;
+  --max-w:1200px;--gutter:64px;--nav-h:64px;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --shadow:0 2px 8px rgba(0,0,0,.05),0 8px 32px rgba(0,0,0,.08);
+  --shadow-h:0 4px 16px rgba(0,0,0,.08),0 20px 48px rgba(0,0,0,.13);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+::selection{background:var(--ink);color:var(--bg);}
+body{font-family:'Montserrat',sans-serif;font-size:var(--text-base);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+/* ANNOUNCE */
+.ann{background:var(--ink);padding:9px 0;overflow:hidden;}
+.ann-track{display:inline-flex;animation:ann 36s linear infinite;white-space:nowrap;}
+@keyframes ann{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ann-item{padding:0 var(--sp-8);font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.32);display:flex;align-items:center;}
+.ann-item::after{content:'·';opacity:.3;margin-left:var(--sp-8);}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;height:var(--nav-h);background:rgba(14,14,12,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 var(--gutter);}
+.nav-logo img{height:32px;width:auto;filter:brightness(0) invert(1);}
+.nav-links{display:flex;align-items:center;gap:var(--sp-7);}
+.nav-link{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:color .2s;position:relative;padding-bottom:2px;}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--silver);transform:scaleX(0);transform-origin:right;transition:transform .28s var(--ease);}
+.nav-link:hover{color:white;}
+.nav-link:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-actions{display:flex;align-items:center;gap:var(--sp-3);justify-content:flex-end;}
+.btn-nav{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 22px;border-radius:8px;background:var(--silver);color:var(--ink);transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
+.btn-nav:hover{background:var(--silver-2);color:white;transform:translateY(-1px);}
+.nav-ham{display:none;flex-direction:column;gap:4px;padding:4px;}
+.nav-ham span{display:block;width:20px;height:1.5px;background:rgba(255,255,255,.6);border-radius:2px;transition:all .3s var(--ease);}
+
+/* HERO */
+.hero{position:relative;height:calc(100vh - var(--nav-h));min-height:560px;max-height:960px;overflow:hidden;background:var(--ink);display:flex;align-items:flex-end;}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform 14s ease;}
+.hero:hover .hero-img{transform:scale(1.03);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,6,.88) 0%,rgba(8,8,6,.5) 45%,rgba(8,8,6,.1) 70%,transparent 100%),linear-gradient(to top,rgba(8,8,6,.65) 0%,transparent 55%);}
+.hero-body{position:relative;z-index:2;padding:0 var(--gutter) var(--sp-10);max-width:calc(var(--max-w) + var(--gutter)*2);margin:0 auto;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:var(--sp-2);background:rgba(168,180,192,.15);border:1px solid rgba(168,180,192,.4);backdrop-filter:blur(8px);padding:6px 16px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-light);margin-bottom:var(--sp-5);opacity:0;animation:rise .6s var(--ease) .1s both;}
+.hero-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--silver-light);flex-shrink:0;}
+@keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.hero-h1{font-size:var(--text-hero);font-family:var(--font-d);font-weight:600;line-height:1.02;letter-spacing:-.01em;color:white;margin-bottom:var(--sp-5);max-width:580px;opacity:0;animation:rise .9s var(--ease) .22s both;}
+.hero-h1 em{font-style:italic;color:var(--silver-light);font-weight:500;}
+.hero-sub{font-size:var(--text-sm);line-height:1.85;color:rgba(255,255,255,.82);max-width:400px;margin-bottom:var(--sp-7);opacity:0;animation:rise .9s var(--ease) .34s both;}
+.hero-btns{display:flex;gap:var(--sp-3);margin-bottom:var(--sp-8);opacity:0;animation:rise .9s var(--ease) .46s both;}
+.btn-hero{padding:14px 34px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:var(--sp-2);}
+.btn-hero-silver{background:var(--silver);color:var(--ink);}
+.btn-hero-silver:hover{background:var(--silver-2);color:white;transform:translateY(-2px);box-shadow:0 8px 32px rgba(168,180,192,.3);}
+.btn-hero-ghost{border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.65);}
+.btn-hero-ghost:hover{border-color:rgba(255,255,255,.5);color:white;}
+.hero-markers{display:flex;gap:var(--sp-8);opacity:0;animation:rise .9s var(--ease) .58s both;}
+.hero-marker{padding-left:var(--sp-4);border-left:1px solid rgba(255,255,255,.1);}
+.hero-marker-val{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;display:block;margin-bottom:2px;}
+.hero-marker-label{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);}
+
+/* UTILS */
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--light);display:inline-flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-3);}
+.eyebrow::before{content:'';display:block;width:18px;height:1px;background:currentColor;flex-shrink:0;}
+.eyebrow-silver{color:var(--silver);}
+.eyebrow-light{color:rgba(255,255,255,.3);}
+.eyebrow-light::before{background:rgba(255,255,255,.3);}
+.sec-title{font-size:clamp(2rem,3vw,2.8rem);font-family:var(--font-d);font-weight:700;letter-spacing:-.01em;line-height:1.08;color:var(--ink);}
+.sec-title em{font-style:italic;color:var(--mid);font-weight:500;}
+.sec-title-light{color:white;}
+.sec-title-light em{color:rgba(255,255,255,.3);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:12px 28px;border-radius:999px;border:none;cursor:pointer;transition:all .2s var(--ease);white-space:nowrap;}
+.btn-dark{background:var(--ink);color:white;}
+.btn-dark:hover{background:var(--ink-2);transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.2);}
+.btn-silver{background:var(--silver);color:var(--ink);}
+.btn-silver:hover{background:var(--silver-2);color:white;transform:translateY(-1px);}
+.btn-wa{background:#16a34a;color:white;box-shadow:0 4px 14px rgba(22,163,74,.2);}
+.btn-wa:hover{background:#15803d;transform:translateY(-1px);box-shadow:0 8px 24px rgba(22,163,74,.28);}
+.btn-ghost-light{border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);background:transparent;}
+.btn-ghost-light:hover{border-color:rgba(255,255,255,.45);color:white;}
+
+/* SERVICES */
+.sec-services{background:var(--bg);padding:var(--sp-11) 0;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-top:var(--sp-8);}
+.svc-card{background:white;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform .4s var(--ease),box-shadow .4s;cursor:pointer;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-h);}
+.svc-img{height:240px;overflow:hidden;background:var(--bg-2);}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.svc-card:hover .svc-img img{transform:scale(1.05);}
+.svc-body{padding:var(--sp-5);}
+.svc-cat{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--silver);margin-bottom:var(--sp-2);}
+.svc-name{font-size:var(--text-lg);font-family:var(--font-d);font-weight:700;color:var(--ink);margin-bottom:var(--sp-2);line-height:1.15;}
+.svc-desc{font-size:10px;line-height:1.8;color:var(--mid);}
+
+/* PERKS */
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3);margin-top:var(--sp-7);}
+.perk{background:white;border-radius:16px;padding:var(--sp-5) var(--sp-4);display:flex;gap:var(--sp-3);align-items:flex-start;box-shadow:0 1px 4px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.05);}
+.perk-ico{color:var(--silver);font-size:.9rem;flex-shrink:0;margin-top:1px;}
+.perk-t{font-size:10px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.perk-s{font-size:10px;color:var(--mid);line-height:1.5;}
+
+/* GALLERY */
+.sec-gallery{background:var(--ink);padding:var(--sp-11) 0;}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-2);margin-top:var(--sp-8);}
+.gal-item{position:relative;overflow:hidden;background:var(--ink-2);border-radius:18px;cursor:pointer;aspect-ratio:1/1;}
+.gal-item img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:transform .8s var(--ease),opacity .4s;}
+.gal-item:hover img{transform:scale(1.04);opacity:.95;}
+.gal-tag{position:absolute;bottom:var(--sp-4);left:var(--sp-4);background:rgba(8,8,6,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:var(--sp-3) var(--sp-4);opacity:0;transform:translateY(4px);transition:opacity .25s var(--ease),transform .25s var(--ease);}
+.gal-item:hover .gal-tag{opacity:1;transform:none;}
+.gal-tag-cat{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-light);display:block;margin-bottom:2px;}
+.gal-tag-name{font-size:var(--text-sm);font-weight:800;color:white;letter-spacing:-.01em;}
+
+/* PROCESS */
+.sec-process{background:var(--bg-2);padding:var(--sp-11) 0;}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-top:var(--sp-8);}
+.proc-step{background:white;padding:var(--sp-7) var(--sp-6);border-radius:18px;box-shadow:0 1px 4px rgba(0,0,0,.04),0 4px 20px rgba(0,0,0,.06);}
+.proc-num{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--silver);display:block;margin-bottom:var(--sp-5);}
+.proc-title{font-size:var(--text-md);font-family:var(--font-d);font-weight:700;color:var(--ink);margin-bottom:var(--sp-3);letter-spacing:-.01em;line-height:1.2;}
+.proc-body{font-size:var(--text-sm);line-height:1.85;color:var(--mid);}
+
+/* ARQEN SECTION */
+.sec-arqen{background:var(--ink);padding:var(--sp-11) 0;overflow:hidden;position:relative;}
+.sec-arqen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(168,180,192,.06) 0%,transparent 60%);pointer-events:none;}
+.arqen-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-9);align-items:center;position:relative;}
+.arqen-img{border-radius:20px;overflow:hidden;aspect-ratio:4/5;}
+.arqen-img img{width:100%;height:100%;object-fit:cover;opacity:.85;}
+.arqen-logo{font-family:var(--font-d);font-size:3.5rem;font-weight:700;letter-spacing:.06em;color:white;margin-bottom:4px;line-height:1;}
+.arqen-sub{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);display:block;margin-bottom:var(--sp-5);}
+.arqen-desc{font-size:var(--text-sm);line-height:1.9;color:rgba(255,255,255,.4);margin-bottom:var(--sp-6);max-width:420px;}
+.arqen-tags{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-bottom:var(--sp-7);}
+.arqen-tag{font-size:10px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:6px 14px;border-radius:999px;}
+
+/* CTA */
+.sec-cta{background:var(--bg);padding:var(--sp-11) 0;text-align:center;}
+.cta-eyebrow{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--silver);display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-bottom:var(--sp-5);}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--silver);opacity:.5;}
+.cta-title{font-size:clamp(2.4rem,4vw,4rem);font-family:var(--font-d);font-weight:700;letter-spacing:-.01em;line-height:1.06;color:var(--ink);max-width:560px;margin:0 auto var(--sp-4);}
+.cta-title em{font-style:italic;color:var(--mid);font-weight:500;}
+.cta-body{font-size:var(--text-sm);color:var(--mid);max-width:380px;margin:0 auto var(--sp-8);line-height:1.9;}
+.cta-btns{display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap;margin-bottom:var(--sp-9);}
+.cta-states{display:flex;justify-content:center;flex-wrap:wrap;gap:0;border-top:1px solid rgba(0,0,0,.08);padding-top:var(--sp-7);}
+.cta-state{padding:0 var(--sp-6);border-right:1px solid rgba(0,0,0,.08);text-align:center;}
+.cta-state:last-child{border-right:none;}
+.cta-state-n{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--mid);display:block;margin-bottom:4px;}
+.cta-state-l{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--light);}
+
+/* FOOTER */
+footer{background:#080806;padding:var(--sp-10) 0 var(--sp-6);border-top:1px solid rgba(255,255,255,.05);}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--sp-9);margin-bottom:var(--sp-8);}
+.ft-logo{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.5;display:block;margin-bottom:var(--sp-4);}
+.ft-about{font-size:10px;line-height:2.1;color:rgba(255,255,255,.16);max-width:200px;margin-bottom:var(--sp-5);}
+.ft-soc{display:flex;gap:var(--sp-2);}
+.ft-soc-btn{width:32px;height:32px;border-radius:999px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.22);font-size:10px;font-weight:700;transition:all .2s;}
+.ft-soc-btn:hover{background:var(--silver);border-color:var(--silver);color:var(--ink);}
+.ft-col-title{font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.18);display:block;margin-bottom:var(--sp-4);}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:var(--sp-3);}
+.ft-links a{font-size:10px;color:rgba(255,255,255,.18);transition:color .18s;font-weight:500;}
+.ft-links a:hover{color:rgba(255,255,255,.65);}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:var(--sp-5);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sp-3);}
+.ft-copy{font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.08em;}
+
+/* FLOAT */
+.float{position:fixed;bottom:var(--sp-6);right:var(--sp-6);z-index:800;display:flex;flex-direction:column;gap:var(--sp-3);}
+.fbtn{width:48px;height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:var(--shadow);transition:transform .22s var(--ease),box-shadow .22s;}
+.fbtn:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);}
+.fbtn svg{width:21px;height:21px;fill:white;}
+.fbtn-wa{background:#25D366;}
+.fbtn-ig{background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.rv.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  :root{--gutter:28px;}
+  .nav{position:relative;display:flex;justify-content:space-between;align-items:center;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:rgba(14,14,12,.98);border-top:1px solid rgba(255,255,255,.07);padding:var(--sp-3) 0;box-shadow:0 16px 40px rgba(0,0,0,.3);z-index:210;}
+  .nav-links.open .nav-link{padding:14px var(--gutter);color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.05);font-size:var(--text-sm);}
+  .nav-ham{display:flex;}
+  .btn-nav{display:none;}
+  .svc-magazine{grid-template-columns:1fr!important;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .perks{grid-template-columns:1fr 1fr;}
+  .gal-grid{grid-template-columns:1fr 1fr;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .arqen-grid{grid-template-columns:1fr;}
+  .arqen-img{max-height:400px;}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:var(--sp-7);}
+}
+@media(max-width:640px){
+  :root{--gutter:16px;}
+  .hero{max-height:none;min-height:calc(100svh - var(--nav-h));}
+  .hero-h1{font-size:2.4rem;max-width:100%;}
+  .hero-sub{max-width:100%;}
+  .hero-btns{flex-direction:column;gap:var(--sp-2);}
+  .btn-hero{width:100%;justify-content:center;}
+  .hero-markers{display:none;}
+  .hero-body{padding:0 var(--gutter) var(--sp-8);}
+  .svc-magazine{grid-template-columns:1fr!important;}
+  .services-grid{grid-template-columns:1fr;}
+  .svc-img{height:200px;}
+  .perks{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:1fr 1fr;gap:var(--sp-2);}
+  .sec-process{padding:var(--sp-7) 0;}
+  .process-grid{display:flex;flex-direction:column;gap:0;margin-top:var(--sp-5);}
+  .proc-step{background:none;border-radius:0;box-shadow:none;padding:var(--sp-4) 0;border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:flex-start;gap:var(--sp-4);}
+  .proc-step:last-child{border-bottom:none;}
+  .proc-step:hover{transform:none;box-shadow:none;}
+  .proc-num{font-size:1.4rem;font-family:var(--font-d);font-weight:700;margin-bottom:0;min-width:28px;line-height:1.1;}
+  .proc-title{font-size:var(--text-sm);margin-bottom:4px;}
+  .proc-body{font-size:10px;line-height:1.7;color:var(--light);}
+  .ft-grid{grid-template-columns:1fr;gap:var(--sp-6);}
+  .cta-title{font-size:2rem;}
+  .cta-states{flex-wrap:wrap;gap:var(--sp-4);}
+  .cta-state{border-right:none;padding:0 var(--sp-3);}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .cta-btns .btn{width:100%;max-width:280px;justify-content:center;}
+  .sec-cta,.sec-gallery,.sec-services,.sec-arqen{padding:var(--sp-9) 0;}
+  footer{padding:var(--sp-8) 0 var(--sp-5);}
+  .float{bottom:var(--sp-4);right:var(--sp-4);}
+  .fbtn{width:42px;height:42px;}
+  .arqen-logo{font-size:2.4rem;}
+  .sec-title{font-size:1.8rem;}
+  /* Show cotizar btn on mobile as text link */
+  .btn-nav{display:inline-flex!important;padding:7px 14px;font-size:9px;}
+  /* Magazine grid second row — 1 col on mobile */
+  .svc-magazine + div{grid-template-columns:1fr!important;}
+  /* Fix inline heights on mobile */
+  .svc-large .svc-img{height:260px!important;}
+  .svc-img{height:180px!important;}
+  /* ARQEN section stack fix */
+  .arqen-grid>div:first-child{text-align:center;}
+  .arqen-tags{justify-content:center;}
+  .arqen-desc{margin-left:auto;margin-right:auto;}
+  /* CTA states — 2 per row */
+  .cta-states{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);}
+  .cta-state{text-align:center;padding:var(--sp-3) 0;border-right:none;border-bottom:1px solid rgba(0,0,0,.07);}
+  .cta-state:last-child,.cta-state:nth-last-child(-n+2):first-child~*{border-bottom:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="ann">
+  <div class="ann-track">
+    <span class="ann-item">Herrería arquitectónica premium</span>
+    <span class="ann-item">Sinaloa · Sonora · Jalisco · Durango · Nayarit</span>
+    <span class="ann-item">25+ años de experiencia</span>
+    <span class="ann-item">Proyectos a la medida</span>
+    <span class="ann-item">Acero · Aluminio · Vidrio</span>
+    <span class="ann-item">Puertas · Portones · Escaleras · Barandales</span>
+    <span class="ann-item">Herrería arquitectónica premium</span>
+    <span class="ann-item">Sinaloa · Sonora · Jalisco · Durango · Nayarit</span>
+    <span class="ann-item">25+ años de experiencia</span>
+    <span class="ann-item">Proyectos a la medida</span>
+    <span class="ann-item">Acero · Aluminio · Vidrio</span>
+    <span class="ann-item">Puertas · Portones · Escaleras · Barandales</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/logometalmad.png" alt="MetalMad">
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#servicios" class="nav-link">Servicios</a>
+    <a href="#galeria" class="nav-link">Galería</a>
+    <a href="#proceso" class="nav-link">Proceso</a>
+    <a href="#contacto" class="nav-link">Contacto</a>
+  </div>
+  <div class="nav-actions">
+    <a href="https://wa.me/526677300307" target="_blank" class="btn-nav">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.329l4.47-1.478A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-2.169 0-4.206-.63-5.91-1.715l-.424-.253-2.653.878.867-2.57-.276-.437A9.796 9.796 0 012.18 12c0-5.421 4.399-9.82 9.82-9.82 5.421 0 9.82 4.399 9.82 9.82 0 5.421-4.399 9.82-9.82 9.82z"/></svg>
+      Cotizar
+    </a>
+    <button class="nav-ham" id="nHam" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_Architectural_photography_luxury_custom_steel_front_door_with_intricate_CNC_lase-0.jpg" alt="MetalMad — Puerta de acero a la medida">
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <div class="hero-tag">Herrería arquitectónica a la medida</div>
+    <h1 class="hero-h1">Metal que define<br>tu <em>arquitectura.</em></h1>
+    <p class="hero-sub">Puertas, portones, escaleras y barandales de acero fabricados a la medida. Diseño único, acabados premium, instalación incluida.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/526677300307" target="_blank" class="btn-hero btn-hero-silver">Cotizar proyecto →</a>
+      <a href="#galeria" class="btn-hero btn-hero-ghost">Ver galería</a>
+    </div>
+    <div class="hero-markers">
+      <div class="hero-marker">
+        <span class="hero-marker-val">25+ años</span>
+        <span class="hero-marker-label">Experiencia</span>
+      </div>
+      <div class="hero-marker">
+        <span class="hero-marker-val">5 estados</span>
+        <span class="hero-marker-label">Cobertura</span>
+      </div>
+      <div class="hero-marker">
+        <span class="hero-marker-val">100% a medida</span>
+        <span class="hero-marker-label">Cada proyecto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec-services" id="servicios">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <span class="eyebrow rv">Lo que fabricamos</span>
+      <h2 class="sec-title rv d1">Soluciones en acero para cada <em>espacio</em></h2>
+    </div>
+
+    <!-- Magazine grid: 1 large + 2 medium -->
+    <div class="svc-magazine rv" style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--sp-3);margin-top:var(--sp-8);">
+      <!-- Large card -->
+      <div class="svc-card svc-large" onclick="window.open('https://wa.me/526677300307','_blank')">
+        <div class="svc-img" style="height:480px;">
+          <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_Architectural_photography_luxury_custom_steel_front_door_with_intricate_CNC_lase-0.jpg" alt="Puertas de acero" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <span class="svc-cat">Acceso principal</span>
+          <h3 class="svc-name">Puertas de acero</h3>
+          <p class="svc-desc">Diseños únicos con acabados premium. Residencial y comercial.</p>
+        </div>
+      </div>
+      <!-- Right column: 2 stacked -->
+      <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+        <div class="svc-card" onclick="window.open('https://wa.me/526677300307','_blank')">
+          <div class="svc-img" style="height:228px;">
+            <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_Interior_architectural_photography_floating_steel_staircase_with_tempered_glass_-0.jpg" alt="Escaleras flotantes" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-cat">Interior</span>
+            <h3 class="svc-name">Escaleras flotantes</h3>
+            <p class="svc-desc">Acero con vidrio templado o madera. Diseño estructural incluido.</p>
+          </div>
+        </div>
+        <div class="svc-card" onclick="window.open('https://wa.me/526677300307','_blank')">
+          <div class="svc-img" style="height:228px;">
+            <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_Close_up_architectural_detail_photography_custom_steel_and_glass_railing_system_-0.jpg" alt="Barandales" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-cat">Seguridad y diseño</span>
+            <h3 class="svc-name">Barandales</h3>
+            <p class="svc-desc">Inoxidable, negro mate o con vidrio. Terrazas y balcones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second row: 3 equal cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);margin-top:var(--sp-3);">
+      <div class="svc-card rv" onclick="window.open('https://wa.me/526677300307','_blank')">
+        <div class="svc-img" style="height:200px;">
+          <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_Architectural_photography_premium_residential_driveway_gate_vertical_steel_bar_d-0.jpg" alt="Portones" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <span class="svc-cat">Acceso vehicular</span>
+          <h3 class="svc-name">Portones y rejas</h3>
+          <p class="svc-desc">Corredizos, batientes o abatibles. Automatización opcional.</p>
+        </div>
+      </div>
+      <div class="svc-card rv d1" onclick="window.open('https://wa.me/526677300307','_blank')">
+        <div class="svc-img" style="height:200px;">
+          <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_Architectural_photography_floor_to_ceiling_aluminum_framed_sliding_doors_minimal-0-2.jpg" alt="Cancelería" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <span class="svc-cat">Ventanas y fachadas</span>
+          <h3 class="svc-name">Cancelería</h3>
+          <p class="svc-desc">Aluminio y vidrio de alto rendimiento. Piso a techo.</p>
+        </div>
+      </div>
+      <div class="svc-card rv d2" onclick="window.open('https://wa.me/526677300307','_blank')">
+        <div class="svc-img" style="height:200px;">
+          <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/nano-banana-2_modern_residential_driveway_gate_vertical_steel_bar_design_matte_black_powder_co-0.jpg" alt="Estructuras especiales" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <span class="svc-cat">Proyectos especiales</span>
+          <h3 class="svc-name">Estructuras a medida</h3>
+          <p class="svc-desc">Pérgolas, cocheras, techos de acero y cualquier proyecto de metalwork.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec-process" id="proceso">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <span class="eyebrow rv">Así trabajamos</span>
+      <h2 class="sec-title rv d1">Tu proyecto, paso a <em>paso</em></h2>
+    </div>
+    <div class="process-grid">
+      <div class="proc-step rv">
+        <span class="proc-num">01</span>
+        <div class="proc-title">Cotización</div>
+        <p class="proc-body">Escríbenos con las dimensiones y el tipo de proyecto. Te respondemos con precio, tiempo de entrega y opciones de acabado en menos de 24 horas.</p>
+      </div>
+      <div class="proc-step rv d1">
+        <span class="proc-num">02</span>
+        <div class="proc-title">Diseño y aprobación</div>
+        <p class="proc-body">Generamos planos y renders del proyecto para tu aprobación. Sin sorpresas — apruebas antes de que empiece la fabricación.</p>
+      </div>
+      <div class="proc-step rv d2">
+        <span class="proc-num">03</span>
+        <div class="proc-title">Fabricación e instalación</div>
+        <p class="proc-body">Fabricamos en nuestro taller en Sinaloa y nuestro equipo instala directamente en tu propiedad. Entrega garantizada en el plazo acordado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARQEN SECTION -->
+<section class="sec-arqen">
+  <div class="wrap">
+    <div class="arqen-grid">
+      <div class="rv">
+        <span class="eyebrow eyebrow-light" style="margin-bottom:var(--sp-5);">También de MetalMad</span>
+        <div class="arqen-logo">ARQEN</div>
+        <span class="arqen-sub">Architectural Objects</span>
+        <p class="arqen-desc">Nuestra línea de productos de diseño en acero. Macetas retroiluminadas y puertas autoinstalables — piezas únicas disponibles en línea con envío a México, USA e internacional.</p>
+        <div class="arqen-tags">
+          <span class="arqen-tag">Macetas retroiluminadas</span>
+          <span class="arqen-tag">Puertas autoinstalables</span>
+          <span class="arqen-tag">Envíos internacionales</span>
+          <span class="arqen-tag">Precio fijo por medida</span>
+        </div>
+        <a href="https://arqenarchitectural.netlify.app" target="_blank" class="btn btn-ghost-light">Visitar ARQEN →</a>
+      </div>
+      <div class="arqen-img rv d1">
+        <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/arqen/nano-banana-2_Night_photography_illuminated_CNC_steel_planter_warm_amber_LED_light_glowing_thr-0.jpg" alt="ARQEN — Maceta retroiluminada" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-cta" id="contacto">
+  <div class="wrap">
+    <div class="cta-eyebrow rv">Empieza tu proyecto</div>
+    <h2 class="cta-title rv d1">¿Tienes un proyecto<br>en <em>mente?</em></h2>
+    <p class="cta-body rv d2">Cuéntanos qué necesitas. Respondemos en menos de 24 horas con opciones, precios y tiempos de entrega.</p>
+    <div class="cta-btns rv d3">
+      <a href="https://wa.me/526677300307" target="_blank" class="btn btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.329l4.47-1.478A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-2.169 0-4.206-.63-5.91-1.715l-.424-.253-2.653.878.867-2.57-.276-.437A9.796 9.796 0 012.18 12c0-5.421 4.399-9.82 9.82-9.82 5.421 0 9.82 4.399 9.82 9.82 0 5.421-4.399 9.82-9.82 9.82z"/></svg>
+        667 730 0307
+      </a>
+      <a href="tel:6677300307" class="btn btn-dark">Llamar directo →</a>
+    </div>
+    <div class="cta-states rv">
+      <div class="cta-state"><span class="cta-state-n">Sinaloa</span><span class="cta-state-l">Sede principal</span></div>
+      <div class="cta-state"><span class="cta-state-n">Sonora</span><span class="cta-state-l">Cobertura</span></div>
+      <div class="cta-state"><span class="cta-state-n">Jalisco</span><span class="cta-state-l">Cobertura</span></div>
+      <div class="cta-state"><span class="cta-state-n">Durango</span><span class="cta-state-l">Cobertura</span></div>
+      <div class="cta-state"><span class="cta-state-n">Nayarit</span><span class="cta-state-l">Cobertura</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <img src="https://ltveorvqvvlyivjwxjlc.supabase.co/storage/v1/object/public/metalmad/logometalmad.png" alt="MetalMad" class="ft-logo">
+        <p class="ft-about">Herrería arquitectónica premium. Fabricación a la medida en Sinaloa, México. Proyectos residenciales y comerciales en todo el noroeste y occidente del país.</p>
+        <div class="ft-soc">
+          <a href="https://instagram.com/metalmadmx" target="_blank" class="ft-soc-btn">IG</a>
+          <a href="https://wa.me/526677300307" target="_blank" class="ft-soc-btn">WA</a>
+          <a href="tel:6677300307" class="ft-soc-btn">☎</a>
+        </div>
+      </div>
+      <div>
+        <span class="ft-col-title">Servicios</span>
+        <ul class="ft-links">
+          <li><a href="#servicios">Puertas de acero</a></li>
+          <li><a href="#servicios">Portones y rejas</a></li>
+          <li><a href="#servicios">Escaleras flotantes</a></li>
+          <li><a href="#servicios">Barandales</a></li>
+          <li><a href="#servicios">Cancelería</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="ft-col-title">Información</span>
+        <ul class="ft-links">
+          <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="https://arqenarchitectural.netlify.app" target="_blank">ARQEN — Productos en línea</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="ft-col-title">Contacto</span>
+        <ul class="ft-links">
+          <li><a href="tel:6677300307">667 730 0307</a></li>
+          <li><a href="https://wa.me/526677300307" target="_blank">Cotizar por WhatsApp</a></li>
+          <li><a href="https://instagram.com/metalmadmx" target="_blank">@metalmadmx</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 MetalMad. Todos los derechos reservados.</span>
+      <span class="ft-copy">Herrería a la medida, hecho en México.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT -->
+<div class="float">
+  <a href="https://wa.me/526677300307" target="_blank" class="fbtn fbtn-wa" aria-label="Cotizar">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.329l4.47-1.478A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-2.169 0-4.206-.63-5.91-1.715l-.424-.253-2.653.878.867-2.57-.276-.437A9.796 9.796 0 012.18 12c0-5.421 4.399-9.82 9.82-9.82 5.421 0 9.82 4.399 9.82 9.82 0 5.421-4.399 9.82-9.82 9.82z"/></svg>
+  </a>
+  <a href="https://instagram.com/metalmadmx" target="_blank" class="fbtn fbtn-ig" aria-label="Instagram">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+  </a>
+</div>
+
+<script>
+function toggleNav(){
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('nHam').classList.toggle('open');
+}
+document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('nHam').classList.remove('open');
+}));
+
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('in'); }), {threshold: .07});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
